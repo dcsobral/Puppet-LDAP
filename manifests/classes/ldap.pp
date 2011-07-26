@@ -69,6 +69,14 @@ class ldap {
         notify  => Service['slapd'],
     }
 
+    file { '/etc/ldap/ldap.conf':
+        ensure  => present,
+        owner   => 'openldap',
+        group   => 'openldap',
+        mode    => 644,
+        require => Package['slapd'],
+    }
+
     file { '/etc/ldap/slapd.conf':
         ensure  => present,
         owner   => 'openldap',
