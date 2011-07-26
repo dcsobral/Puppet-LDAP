@@ -1,0 +1,30 @@
+# ldap puppet module #
+
+Installs and configures ldap master and slaves.
+
+This module was written for Debian.
+
+## Classes ##
+
+* ldap
+* ldap::master
+
+### ldap ###
+
+Basic installation of packages, configuration and schemas. It
+does not specify a source for the ldap configuration -- you
+should include ldap::master for that instead.
+
+### ldap::master ###
+
+Same thing as ldap, but specifies a source for ldap::master.
+
+## Definitions ##
+
+* ldap::slave
+
+### ldap::slave ###
+
+This receives the "rid" parameter which is passed on to the
+templated configuration file for ldap.
+
