@@ -18,6 +18,9 @@ class ldap {
     file { '/etc/ldap/schema':
         ensure  => directory,
         source  => [
+            "puppet:///files/ldap/host/ldap/schema.$fqdn",
+            "puppet:///files/ldap/host/ldap/schema.$hostname",
+            "puppet:///files/ldap/env/ldap/schema.$environment",
             'puppet:///files/ldap/ldap/schema',
             'puppet:///ldap/ldap/schema',
         ],
@@ -34,6 +37,9 @@ class ldap {
     file { '/etc/ldap/sasl2':
         ensure  => directory,
         source  => [
+            "puppet:///files/ldap/host/ldap/sasl2.$fqdn",
+            "puppet:///files/ldap/host/ldap/sasl2.$hostname",
+            "puppet:///files/ldap/env/ldap/sasl2.$environment",
             'puppet:///files/ldap/ldap/sasl2',
             'puppet:///ldap/ldap/sasl2',
         ],
@@ -50,6 +56,9 @@ class ldap {
     file { '/etc/default/slapd':
         ensure  => present,
         source  => [
+            "puppet:///files/ldap/host/default/slapd.$fqdn",
+            "puppet:///files/ldap/host/default/slapd.$hostname",
+            "puppet:///files/ldap/env/default/slapd.$environment",
             'puppet:///files/ldap/default/slapd',
             'puppet:///ldap/default/slapd',
         ],
