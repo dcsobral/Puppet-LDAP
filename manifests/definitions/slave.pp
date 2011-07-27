@@ -1,7 +1,7 @@
 define ldap::slave($rid) {
     include ldap
 
-    File['/etc/ldap/ldap.conf'] {
+    File <| title == '/etc/ldap/ldap.conf' |> {
         source  => [
             "puppet:///files/ldap/host/ldap/ldap.conf.$fqdn",
             "puppet:///files/ldap/host/ldap/ldap.conf.$hostname",
